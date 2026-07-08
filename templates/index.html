@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f5f5f5;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:500px;
+            margin:40px auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#2c3e50;
+        }
+
+        .form-group{
+            margin-bottom:15px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            box-sizing:border-box;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#28a745;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#218838;
+        }
+
+        .result{
+            margin-top:20px;
+            text-align:center;
+            font-size:22px;
+            color:green;
+            font-weight:bold;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Crop Prediction System</h2>
+
+<form action="/predict" method="POST">
+
+<div class="form-group">
+<label>Nitrogen (N)</label>
+<input type="number" step="any" name="N" required>
+</div>
+
+<div class="form-group">
+<label>Phosphorus (P)</label>
+<input type="number" step="any" name="P" required>
+</div>
+
+<div class="form-group">
+<label>Potassium (K)</label>
+<input type="number" step="any" name="K" required>
+</div>
+
+<div class="form-group">
+<label>pH</label>
+<input type="number" step="any" name="ph" required>
+</div>
+
+<div class="form-group">
+<label>EC</label>
+<input type="number" step="any" name="EC" required>
+</div>
+
+<div class="form-group">
+<label>Sulphur (S)</label>
+<input type="number" step="any" name="S" required>
+</div>
+
+<div class="form-group">
+<label>Copper (Cu)</label>
+<input type="number" step="any" name="Cu" required>
+</div>
+
+<div class="form-group">
+<label>Iron (Fe)</label>
+<input type="number" step="any" name="Fe" required>
+</div>
+
+<div class="form-group">
+<label>Manganese (Mn)</label>
+<input type="number" step="any" name="Mn" required>
+</div>
+
+<div class="form-group">
+<label>Zinc (Zn)</label>
+<input type="number" step="any" name="Zn" required>
+</div>
+
+<div class="form-group">
+<label>Boron (B)</label>
+<input type="number" step="any" name="B" required>
+</div>
+
+<button type="submit">Predict Crop</button>
+
+</form>
+
+{% if prediction %}
+<div class="result">
+Predicted Crop: {{ prediction }}
+</div>
+{% endif %}
+
+</div>
+
+<a href="/aboutme"> Know Developer </a>
+
+</body>
+</html>
