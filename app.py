@@ -16,23 +16,23 @@ def index():
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    features = [
-        float(request.form["N"]),
-        float(request.form["P"]),
-        float(request.form["K"]),
-        float(request.form["ph"]),
-        float(request.form["EC"]),
-        float(request.form["S"]),
-        float(request.form["Cu"]),
-        float(request.form["Fe"]),
-        float(request.form["Mn"]),
-        float(request.form["Zn"]),
-        float(request.form["B"])
-    ]
+    N = float(request.form["N"])
+    P = float(request.form["P"])
+    K = float(request.form["K"])
+    ph = float(request.form["ph"])
+    EC = float(request.form["EC"])
+    S = float(request.form["S"])
+    Cu = float(request.form["Cu"])
+    Fe = float(request.form["Fe"])
+    Mn = float(request.form["Mn"])
+    Zn = float(request.form["Zn"])
+    B = float(request.form["B"])
 
-    prediction = model.predict([features])[0]
+    prediction = model.predict([
+        [N, P, K, ph, EC, S, Cu, Fe, Mn, Zn, B]
+    ])
 
-    return render_template("index.html", prediction=prediction)
+    return render_template("index.html", prediction=prediction[0])
 
 
 @app.route('/aboutme')
